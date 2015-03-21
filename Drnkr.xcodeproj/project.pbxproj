@@ -32,6 +32,9 @@
 		06AEC8FC1ABDE36600DDDD9B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AEC8FB1ABDE36600DDDD9B /* libsqlite3.dylib */; };
 		06AEC9041ABDEB0C00DDDD9B /* NSArray+DLRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC9031ABDEB0C00DDDD9B /* NSArray+DLRandom.m */; };
 		06AEC9071ABDED1100DDDD9B /* UIColor+DLColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC9061ABDED1100DDDD9B /* UIColor+DLColor.m */; };
+		06AEC90C1ABDF38000DDDD9B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC90B1ABDF38000DDDD9B /* LoginViewController.m */; };
+		06AEC90F1ABDF39000DDDD9B /* CreateChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC90E1ABDF39000DDDD9B /* CreateChallengeViewController.m */; };
+		06AEC9121ABE04DF00DDDD9B /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC9111ABE04DF00DDDD9B /* AccountViewController.m */; };
 		06C1EFF11ABD222F009E9DF3 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06C1EFF01ABD222F009E9DF3 /* Lato-Regular.ttf */; };
 		06C1EFFE1ABD25B2009E9DF3 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06C1EFFD1ABD25B2009E9DF3 /* Lato-Black.ttf */; };
 		06C1F0011ABD277A009E9DF3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C1F0001ABD277A009E9DF3 /* MainViewController.m */; };
@@ -84,6 +87,12 @@
 		06AEC9031ABDEB0C00DDDD9B /* NSArray+DLRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+DLRandom.m"; sourceTree = "<group>"; };
 		06AEC9051ABDED1100DDDD9B /* UIColor+DLColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DLColor.h"; sourceTree = "<group>"; };
 		06AEC9061ABDED1100DDDD9B /* UIColor+DLColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DLColor.m"; sourceTree = "<group>"; };
+		06AEC90A1ABDF38000DDDD9B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		06AEC90B1ABDF38000DDDD9B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		06AEC90D1ABDF39000DDDD9B /* CreateChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateChallengeViewController.h; sourceTree = "<group>"; };
+		06AEC90E1ABDF39000DDDD9B /* CreateChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateChallengeViewController.m; sourceTree = "<group>"; };
+		06AEC9101ABE04DF00DDDD9B /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		06AEC9111ABE04DF00DDDD9B /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		06C1EFF01ABD222F009E9DF3 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../Downloads/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		06C1EFFD1ABD25B2009E9DF3 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "../../../Downloads/Lato/Lato-Black.ttf"; sourceTree = "<group>"; };
 		06C1EFFF1ABD277A009E9DF3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -231,6 +240,34 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		06AEC9081ABDF34C00DDDD9B /* Main Flow */ = {
+			isa = PBXGroup;
+			children = (
+				06C1EFFF1ABD277A009E9DF3 /* MainViewController.h */,
+				06C1F0001ABD277A009E9DF3 /* MainViewController.m */,
+				06C1F0021ABD2783009E9DF3 /* LevelViewController.h */,
+				06C1F0031ABD2783009E9DF3 /* LevelViewController.m */,
+				06C1F0051ABD278B009E9DF3 /* DareViewController.h */,
+				06C1F0061ABD278B009E9DF3 /* DareViewController.m */,
+			);
+			name = "Main Flow";
+			sourceTree = "<group>";
+		};
+		06AEC9091ABDF35700DDDD9B /* Menu Flow */ = {
+			isa = PBXGroup;
+			children = (
+				06AEC8D91ABDE0BF00DDDD9B /* MenuViewController.h */,
+				06AEC8DA1ABDE0BF00DDDD9B /* MenuViewController.m */,
+				06AEC90A1ABDF38000DDDD9B /* LoginViewController.h */,
+				06AEC90B1ABDF38000DDDD9B /* LoginViewController.m */,
+				06AEC9101ABE04DF00DDDD9B /* AccountViewController.h */,
+				06AEC9111ABE04DF00DDDD9B /* AccountViewController.m */,
+				06AEC90D1ABDF39000DDDD9B /* CreateChallengeViewController.h */,
+				06AEC90E1ABDF39000DDDD9B /* CreateChallengeViewController.m */,
+			);
+			name = "Menu Flow";
+			sourceTree = "<group>";
+		};
 		06C1EFEE1ABD21F7009E9DF3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,14 +299,8 @@
 		06C1EFF31ABD23E5009E9DF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				06C1EFFF1ABD277A009E9DF3 /* MainViewController.h */,
-				06C1F0001ABD277A009E9DF3 /* MainViewController.m */,
-				06C1F0021ABD2783009E9DF3 /* LevelViewController.h */,
-				06C1F0031ABD2783009E9DF3 /* LevelViewController.m */,
-				06C1F0051ABD278B009E9DF3 /* DareViewController.h */,
-				06C1F0061ABD278B009E9DF3 /* DareViewController.m */,
-				06AEC8D91ABDE0BF00DDDD9B /* MenuViewController.h */,
-				06AEC8DA1ABDE0BF00DDDD9B /* MenuViewController.m */,
+				06AEC9081ABDF34C00DDDD9B /* Main Flow */,
+				06AEC9091ABDF35700DDDD9B /* Menu Flow */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -383,6 +414,9 @@
 				06AEC8DB1ABDE0BF00DDDD9B /* MenuViewController.m in Sources */,
 				06AEC9071ABDED1100DDDD9B /* UIColor+DLColor.m in Sources */,
 				06C1F0011ABD277A009E9DF3 /* MainViewController.m in Sources */,
+				06AEC9121ABE04DF00DDDD9B /* AccountViewController.m in Sources */,
+				06AEC90C1ABDF38000DDDD9B /* LoginViewController.m in Sources */,
+				06AEC90F1ABDF39000DDDD9B /* CreateChallengeViewController.m in Sources */,
 				06A009B21ABD1F8500FFD164 /* main.m in Sources */,
 				06C1F0041ABD2783009E9DF3 /* LevelViewController.m in Sources */,
 				06C1F0071ABD278B009E9DF3 /* DareViewController.m in Sources */,

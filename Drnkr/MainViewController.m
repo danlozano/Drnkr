@@ -31,6 +31,7 @@
     [super viewDidLoad];
     
     [self customizeAppearance];
+    //[self setUpObservers];
     //[self setUpTapGestureRecognizers];
     
     [self loadAssets];
@@ -41,6 +42,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//- (void)setUpObservers
+//{
+//    [[NSNotificationCenter defaultCenter] addObserver: self
+//                                             selector: @selector(dismissModals)
+//                                                 name: @"AccountDidClose"
+//                                               object: nil];
+//}
+//
+//- (void)dismissModals
+//{
+//    [self dismissViewControllerAnimated: YES completion: nil];
+//}
 
 #pragma mark - Network
 

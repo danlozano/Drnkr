@@ -25,7 +25,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear: animated];
-    
+        
     [self updateScreen];
 }
 
@@ -41,6 +41,8 @@
     if (self.challenge) {
         self.challengeLabel.text = self.challenge[@"text"];
         self.view.backgroundColor = [self colorForChallenge];
+    }else{
+        self.challengeLabel.text = @"";
     }
 }
 

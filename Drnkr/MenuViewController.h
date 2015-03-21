@@ -10,6 +10,8 @@
 
 @interface MenuViewController : UIViewController
 
+@property (nonatomic) BOOL dismissModal;
+
 - (IBAction)didSelectClose:(id)sender;
 
 @end
