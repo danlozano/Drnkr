@@ -46,9 +46,11 @@
     
     if (self.challenge) {
         self.challengeLabel.text = self.challenge[@"text"];
-        self.view.backgroundColor = [self colorForChallenge];
+        self.typeLabel.text = [self typeForChallenge: self.challenge];
+        self.view.backgroundColor = [UIColor colorForChallenge: self.challenge];
     }else{
         self.challengeLabel.text = @"";
+        self.typeLabel.text = @"";
     }
 }
 
@@ -56,10 +58,9 @@
 
 - (IBAction)didSelectShare:(id)sender
 {
-    //NSString *stringToShare = [NSString stringWithFormat: @"Complete el reto: %@. Usando DRNKR App."];
-    NSArray *itemsToShare = @[@"Complete el reto: Tomate 2 shots de tequila. Usando DRNKR App."];
+    NSString *stringToShare = [NSString stringWithFormat: @"Complete el reto: %@ Usando DRNKR App.", self.challengeLabel.text];
     
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems: itemsToShare
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems: @[stringToShare]
                                                                              applicationActivities: nil];
     
     activityVC.popoverPresentationController.sourceView = self.shareButton;
@@ -78,18 +79,18 @@
 
 #pragma mark - Helper's
 
-- (UIColor *)colorForChallenge
+- (NSString *)typeForChallenge:(PFObject *)challenge
 {
-    NSString *challengeLevel = self.challenge[@"level"];
+    NSString *challengeLevel = challenge[@"type"];
     
-    if ([challengeLevel isEqualToString: @"easy"]) {
-        return [UIColor easyColor];
+    if ([challengeLevel isEqualToString: @"dare"]) {
+        return @"Castigo";
         
-    }else if([challengeLevel isEqualToString: @"medium"]){
-        return [UIColor mediumColor];
+    }else if([challengeLevel isEqualToString: @"question"]){
+        return @"Pregunta";
         
     }else{
-        return [UIColor hardColor];
+        return @"";
         
     }
 }

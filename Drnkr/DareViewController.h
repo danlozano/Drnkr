@@ -14,6 +14,7 @@
 @property (nonatomic) NSArray *challenges;
 
 @property (weak, nonatomic) IBOutlet UILabel *challengeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 - (IBAction)didSelectShare:(id)sender;
