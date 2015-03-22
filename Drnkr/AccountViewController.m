@@ -20,6 +20,7 @@
 @property (nonatomic) NSArray *challenges;
 
 @property (nonatomic) UIActivityIndicatorView *activityView;
+@property (nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -32,6 +33,7 @@
     [self customizeAppearance];
     
     [self loadAssets];
+    [self.activityView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,8 +46,6 @@
 
 - (void)loadAssets
 {
-    [self.activityView startAnimating];
-    
     PFQuery *userChallengesQuery = [PFQuery queryWithClassName: @"Challenge"];
     [userChallengesQuery whereKey: @"author" equalTo: [PFUser currentUser]];
     [userChallengesQuery orderByDescending: @"createdAt"];
@@ -58,6 +58,7 @@
         }
         
         [self.activityView stopAnimating];
+        [self.refreshControl endRefreshing];
         
     }];
 }
@@ -70,6 +71,12 @@
     
     self.tableView.estimatedRowHeight = 110.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget: self action: @selector(loadAssets) forControlEvents: UIControlEventValueChanged];
+    
+    [self.tableView addSubview: self.refreshControl];
 }
 
 - (void)setUpActivityIndicatorView
@@ -109,7 +116,7 @@
         cell.challengeTypeLabel.text = [self typeForChallenge: challenge];
         cell.challengeLevelLabel.text = [self levelForChallenge: challenge];
         
-        cell.contentView.backgroundColor = [self colorForChallenge: challenge];
+        cell.contentView.backgroundColor = [UIColor colorForChallenge: challenge];
         
         return cell;
         
@@ -120,18 +127,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        
-        CreateChallengeViewController *createVC = [self.storyboard instantiateViewControllerWithIdentifier: @"createChallengeViewController"];
-        createVC.delegate = self;
-        [self presentViewController: createVC animated: YES completion: nil];
-        
-    }else{
-        
-        
-        
+    CreateChallengeViewController *createVC = [self.storyboard instantiateViewControllerWithIdentifier: @"createChallengeViewController"];
+    createVC.delegate = self;
+
+    if (indexPath.row != 0) {
+        // If not first row, so it's editing a challenge, NOT creating
+        createVC.selectedChallenge = self.challenges[indexPath.row - 1];
     }
     
+    [self presentViewController: createVC animated: YES completion: nil];
     [self.tableView deselectRowAtIndexPath: indexPath animated: YES];
 }
 
@@ -144,6 +148,7 @@
     ((LoginViewController *)self.presentingViewController).dismissModal = YES;
     [self dismissViewControllerAnimated: YES completion: nil];
 }
+
 - (IBAction)didSelectClose:(id)sender
 {
     ((LoginViewController *)self.presentingViewController).dismissModal = YES;
@@ -165,7 +170,7 @@
     NSString *challengeLevel = challenge[@"type"];
     
     if ([challengeLevel isEqualToString: @"dare"]) {
-        return @"Reto";
+        return @"Castigo";
         
     }else if([challengeLevel isEqualToString: @"question"]){
         return @"Pregunta";
@@ -186,25 +191,11 @@
     }else if([challengeLevel isEqualToString: @"medium"]){
         return @"Medio";
         
-    }else{
+    }else if ([challengeLevel isEqualToString: @"hard"]){
         return @"Dificil";
         
-    }
-}
-
-- (UIColor *)colorForChallenge:(PFObject *)challenge
-{
-    NSString *challengeLevel = challenge[@"level"];
-    
-    if ([challengeLevel isEqualToString: @"easy"]) {
-        return [UIColor easyColor];
-        
-    }else if([challengeLevel isEqualToString: @"medium"]){
-        return [UIColor mediumColor];
-        
     }else{
-        return [UIColor hardColor];
-        
+        return @"";
     }
 }
 

@@ -503,6 +503,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="challengeTextTextview" destination="4ZZ-4c-wG2" id="y9i-UP-RKb"/>
+                        <outlet property="doneButton" destination="e9N-bh-yld" id="MCm-3c-yIc"/>
                         <outlet property="levelPickerView" destination="dM8-ni-dSV" id="g8l-xd-U6g"/>
                         <outlet property="titleLabel" destination="kIq-ZS-HpB" id="OGG-mO-5Mw"/>
                         <outlet property="typePickerView" destination="AHv-sJ-F2e" id="6w3-4Y-e4E"/>

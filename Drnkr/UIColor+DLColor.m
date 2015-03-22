@@ -25,4 +25,22 @@
     return [UIColor colorWithRed: 241.0/255.0 green: 106.0/255.0 blue: 106.0/255.0 alpha: 1];
 }
 
++ (UIColor *)colorForChallenge:(PFObject *)challenge
+{
+    NSString *challengeLevel = challenge[@"level"];
+    
+    if ([challengeLevel isEqualToString: @"easy"]) {
+        return [UIColor easyColor];
+        
+    }else if([challengeLevel isEqualToString: @"medium"]){
+        return [UIColor mediumColor];
+        
+    }else if([challengeLevel isEqualToString: @"hard"]){
+        return [UIColor hardColor];
+        
+    }else{
+        return [UIColor whiteColor];
+    }
+}
+
 @end

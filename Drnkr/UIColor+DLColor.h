@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface UIColor (DLColor)
 
 + (UIColor *)easyColor;
 + (UIColor *)mediumColor;
 + (UIColor *)hardColor;
++ (UIColor *)colorForChallenge:(PFObject *)challenge;
 
 @end

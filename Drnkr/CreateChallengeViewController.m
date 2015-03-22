@@ -10,6 +10,8 @@
 
 #import <Parse/Parse.h>
 
+#import "UIColor+DLColor.h"
+
 @interface CreateChallengeViewController () <UIPickerViewDataSource,UIPickerViewDelegate,UITextViewDelegate>
 
 @property (nonatomic) NSArray *typesArrayEsp;
@@ -17,6 +19,8 @@
 
 @property (nonatomic) NSArray *typesArray;
 @property (nonatomic) NSArray *levelsArray;
+
+@property (nonatomic) UIActivityIndicatorView *activityView;
 
 @end
 
@@ -37,11 +41,51 @@
     
     UITapGestureRecognizer *viewTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(hideKeyboard)];
     [self.view addGestureRecognizer: viewTapRecognizer];
+    
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    
+    if (self.selectedChallenge) {
+        UIColor *backgroundColor = [UIColor colorForChallenge: self.selectedChallenge];
+        self.view.backgroundColor = backgroundColor;
+        self.challengeTextTextview.backgroundColor = backgroundColor;
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear: animated];
+    
+    if (self.selectedChallenge) {
+        // We are editing a challenge.
+        self.challengeTextTextview.text = self.selectedChallenge[@"text"];
+        [self.typePickerView selectRow: [self.typesArray indexOfObject: self.selectedChallenge[@"type"]] inComponent: 0 animated: YES];
+        [self.levelPickerView selectRow: [self.levelsArray indexOfObject: self.selectedChallenge[@"level"]] inComponent: 0 animated: YES];
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [self setUpActivityIndicatorView];
+}
+
+#pragma mark - Appearance
+
+- (void)setUpActivityIndicatorView
+{
+    self.activityView = [[UIActivityIndicatorView alloc] init];
+    self.activityView.center = self.doneButton.center;
+    
+    [self.view addSubview: self.activityView];
 }
 
 #pragma mark - IBAction's
@@ -59,13 +103,18 @@
     
     if (challengeText.length > 0 && challengeType.length > 0 && challengeLevel.length > 0) {
         
-        PFObject *challenge = [PFObject objectWithClassName: @"Challenge"];
-        challenge[@"author"] = [PFUser currentUser];
-        challenge[@"text"] = challengeText;
-        challenge[@"type"] = challengeType;
-        challenge[@"level"] = challengeLevel;
+        self.doneButton.hidden = YES;
+        [self.activityView startAnimating];
         
-        [challenge saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!self.selectedChallenge) {
+            self.selectedChallenge = [PFObject objectWithClassName: @"Challenge"];
+            self.selectedChallenge[@"author"] = [PFUser currentUser];
+        }
+        self.selectedChallenge[@"text"] = challengeText;
+        self.selectedChallenge[@"type"] = challengeType;
+        self.selectedChallenge[@"level"] = challengeLevel;
+        
+        [self.selectedChallenge saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             
             if (!error) {
                 
@@ -76,6 +125,9 @@
             }else{
                 NSLog(@"ERROR : %@", error);
             }
+            
+            [self.activityView stopAnimating];
+            self.doneButton.hidden = NO;
             
         }];
     }
