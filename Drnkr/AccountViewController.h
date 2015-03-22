@@ -17,6 +17,7 @@
 @interface AccountViewController : UIViewController
 
 @property (weak, nonatomic) id<AccountViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)didSelectLogout:(id)sender;
 - (IBAction)didSelectClose:(id)sender;

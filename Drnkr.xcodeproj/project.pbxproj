@@ -35,6 +35,7 @@
 		06AEC90C1ABDF38000DDDD9B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC90B1ABDF38000DDDD9B /* LoginViewController.m */; };
 		06AEC90F1ABDF39000DDDD9B /* CreateChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC90E1ABDF39000DDDD9B /* CreateChallengeViewController.m */; };
 		06AEC9121ABE04DF00DDDD9B /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC9111ABE04DF00DDDD9B /* AccountViewController.m */; };
+		06AEC9161ABE291400DDDD9B /* ChallengeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06AEC9151ABE291400DDDD9B /* ChallengeTableViewCell.m */; };
 		06C1EFF11ABD222F009E9DF3 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06C1EFF01ABD222F009E9DF3 /* Lato-Regular.ttf */; };
 		06C1EFFE1ABD25B2009E9DF3 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06C1EFFD1ABD25B2009E9DF3 /* Lato-Black.ttf */; };
 		06C1F0011ABD277A009E9DF3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C1F0001ABD277A009E9DF3 /* MainViewController.m */; };
@@ -93,6 +94,8 @@
 		06AEC90E1ABDF39000DDDD9B /* CreateChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateChallengeViewController.m; sourceTree = "<group>"; };
 		06AEC9101ABE04DF00DDDD9B /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		06AEC9111ABE04DF00DDDD9B /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		06AEC9141ABE291400DDDD9B /* ChallengeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeTableViewCell.h; sourceTree = "<group>"; };
+		06AEC9151ABE291400DDDD9B /* ChallengeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableViewCell.m; sourceTree = "<group>"; };
 		06C1EFF01ABD222F009E9DF3 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../Downloads/Lato/Lato-Regular.ttf"; sourceTree = "<group>"; };
 		06C1EFFD1ABD25B2009E9DF3 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "../../../Downloads/Lato/Lato-Black.ttf"; sourceTree = "<group>"; };
 		06C1EFFF1ABD277A009E9DF3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -268,6 +271,15 @@
 			name = "Menu Flow";
 			sourceTree = "<group>";
 		};
+		06AEC9131ABE290200DDDD9B /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				06AEC9141ABE291400DDDD9B /* ChallengeTableViewCell.h */,
+				06AEC9151ABE291400DDDD9B /* ChallengeTableViewCell.m */,
+			);
+			name = "TableView Cells";
+			sourceTree = "<group>";
+		};
 		06C1EFEE1ABD21F7009E9DF3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +302,7 @@
 		06C1EFF21ABD23B5009E9DF3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				06AEC9131ABE290200DDDD9B /* TableView Cells */,
 				06A009BC1ABD1F8500FFD164 /* Main.storyboard */,
 				06A009C11ABD1F8500FFD164 /* LaunchScreen.xib */,
 			);
@@ -410,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06A009B51ABD1F8500FFD164 /* AppDelegate.m in Sources */,
+				06AEC9161ABE291400DDDD9B /* ChallengeTableViewCell.m in Sources */,
 				06AEC9041ABDEB0C00DDDD9B /* NSArray+DLRandom.m in Sources */,
 				06AEC8DB1ABDE0BF00DDDD9B /* MenuViewController.m in Sources */,
 				06AEC9071ABDED1100DDDD9B /* UIColor+DLColor.m in Sources */,
