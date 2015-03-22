@@ -9,8 +9,12 @@
 #import "DareViewController.h"
 
 #import "UIColor+DLColor.h"
+#import "NSArray+DLRandom.h"
+
 
 @interface DareViewController ()
+
+@property (nonatomic) PFObject *challenge;
 
 @end
 
@@ -38,6 +42,8 @@
 
 - (void)updateScreen
 {
+    self.challenge = [self.challenges randomObject];
+    
     if (self.challenge) {
         self.challengeLabel.text = self.challenge[@"text"];
         self.view.backgroundColor = [self colorForChallenge];
@@ -63,6 +69,11 @@
 - (IBAction)didSelectBack:(id)sender
 {
     [self.navigationController popViewControllerAnimated: YES];
+}
+
+- (IBAction)didSelectOther:(id)sender
+{
+    [self updateScreen];
 }
 
 #pragma mark - Helper's

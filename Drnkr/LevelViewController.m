@@ -9,7 +9,6 @@
 #import "LevelViewController.h"
 
 #import "DareViewController.h"
-#import "NSArray+DLRandom.h"
 
 @interface LevelViewController ()
 
@@ -83,7 +82,7 @@
 - (void)didSelectEasy:(UITapGestureRecognizer *)recognizer
 {
     DareViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"dareViewController"];
-    dareVC.challenge = [self.easyChallenges randomObject];
+    dareVC.challenges = self.easyChallenges;
     
     [self.navigationController pushViewController: dareVC animated: YES];
 }
@@ -91,7 +90,7 @@
 - (void)didSelectMedium:(UITapGestureRecognizer *)recognizer
 {
     DareViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"dareViewController"];
-    dareVC.challenge = [self.mediumChallenges randomObject];
+    dareVC.challenges = self.mediumChallenges;
     
     [self.navigationController pushViewController: dareVC animated: YES];
 
@@ -100,7 +99,7 @@
 - (void)didSelectHard:(UITapGestureRecognizer *)recognizer
 {
     DareViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"dareViewController"];
-    dareVC.challenge = [self.hardChallenges randomObject];
+    dareVC.challenges = self.hardChallenges;
     
     [self.navigationController pushViewController: dareVC animated: YES];
 

@@ -19,6 +19,8 @@
 
 @property (nonatomic) NSArray *challenges;
 
+@property (nonatomic) UIActivityIndicatorView *activityView;
+
 @end
 
 @implementation AccountViewController
@@ -42,8 +44,11 @@
 
 - (void)loadAssets
 {
+    [self.activityView startAnimating];
+    
     PFQuery *userChallengesQuery = [PFQuery queryWithClassName: @"Challenge"];
     [userChallengesQuery whereKey: @"author" equalTo: [PFUser currentUser]];
+    [userChallengesQuery orderByDescending: @"createdAt"];
     
     [userChallengesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
@@ -52,6 +57,8 @@
             [self.tableView reloadData];
         }
         
+        [self.activityView stopAnimating];
+        
     }];
 }
 
@@ -59,8 +66,18 @@
 
 - (void)customizeAppearance
 {
+    [self setUpActivityIndicatorView];
+    
     self.tableView.estimatedRowHeight = 110.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+
+- (void)setUpActivityIndicatorView
+{
+    self.activityView = [[UIActivityIndicatorView alloc] init];
+    self.activityView.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2);
+    
+    [self.view addSubview: self.activityView];
 }
 
 #pragma mark - UITableView Data Source
@@ -88,12 +105,12 @@
         
         PFObject *challenge = self.challenges[indexPath.row - 1];
         
-        cell.challengeTypeLabel.text = challenge[@"type"];
-        cell.challengeLevelLabel.text = challenge[@"level"];
         cell.challengeTextLabel.text = challenge[@"text"];
+        cell.challengeTypeLabel.text = [self typeForChallenge: challenge];
+        cell.challengeLevelLabel.text = [self levelForChallenge: challenge];
         
         cell.contentView.backgroundColor = [self colorForChallenge: challenge];
-                
+        
         return cell;
         
     }
@@ -143,14 +160,46 @@
 
 #pragma mark - Helper's
 
+- (NSString *)typeForChallenge:(PFObject *)challenge
+{
+    NSString *challengeLevel = challenge[@"type"];
+    
+    if ([challengeLevel isEqualToString: @"dare"]) {
+        return @"Reto";
+        
+    }else if([challengeLevel isEqualToString: @"question"]){
+        return @"Pregunta";
+        
+    }else{
+        return @"";
+        
+    }
+}
+
+- (NSString *)levelForChallenge:(PFObject *)challenge
+{
+    NSString *challengeLevel = challenge[@"level"];
+    
+    if ([challengeLevel isEqualToString: @"easy"]) {
+        return @"Facil";
+        
+    }else if([challengeLevel isEqualToString: @"medium"]){
+        return @"Medio";
+        
+    }else{
+        return @"Dificil";
+        
+    }
+}
+
 - (UIColor *)colorForChallenge:(PFObject *)challenge
 {
     NSString *challengeLevel = challenge[@"level"];
     
-    if ([challengeLevel isEqualToString: @"Easy"]) {
+    if ([challengeLevel isEqualToString: @"easy"]) {
         return [UIColor easyColor];
         
-    }else if([challengeLevel isEqualToString: @"Medium"]){
+    }else if([challengeLevel isEqualToString: @"medium"]){
         return [UIColor mediumColor];
         
     }else{

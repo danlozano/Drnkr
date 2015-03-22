@@ -12,6 +12,9 @@
 
 @interface CreateChallengeViewController () <UIPickerViewDataSource,UIPickerViewDelegate,UITextViewDelegate>
 
+@property (nonatomic) NSArray *typesArrayEsp;
+@property (nonatomic) NSArray *levelsArrayEsp;
+
 @property (nonatomic) NSArray *typesArray;
 @property (nonatomic) NSArray *levelsArray;
 
@@ -23,8 +26,11 @@
 {
     [super viewDidLoad];
     
-    self.typesArray = @[@"Question", @"Dare"];
-    self.levelsArray = @[@"Easy", @"Medium", @"Hard"];
+    self.typesArrayEsp = @[@"Pregunta", @"Castigo"];
+    self.levelsArrayEsp = @[@"Facil", @"Medio", @"Dificil"];
+    
+    self.typesArray = @[@"question", @"dare"];
+    self.levelsArray = @[@"easy", @"medium", @"hard"];
     
     UITapGestureRecognizer *labelTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(hideKeyboard)];
     [self.titleLabel addGestureRecognizer: labelTapRecognizer];
@@ -91,10 +97,10 @@
 {
     if (pickerView == self.typePickerView) {
         // Type Picker
-        return [self.typesArray count];
+        return [self.typesArrayEsp count];
     }else{
         // Level Picker
-        return [self.levelsArray count];
+        return [self.levelsArrayEsp count];
     }
 }
 
@@ -112,9 +118,9 @@
     }
     
     if (pickerView == self.typePickerView) {
-        tView.text = self.typesArray[row];
+        tView.text = self.typesArrayEsp[row];
     }else{
-        tView.text = self.levelsArray[row];
+        tView.text = self.levelsArrayEsp[row];
     }
 
     return tView;
@@ -124,7 +130,7 @@
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString: @"Challenge text goes here... (Don't forget to add type and level)"]) {
+    if ([textView.text isEqualToString: @"Escribe el texto del reto aqui. (Recuerda escoger nivel y tipo de reto)"]) {
         textView.text = @"";
     }
     return YES;
