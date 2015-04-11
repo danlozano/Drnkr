@@ -21,7 +21,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    self.activityView.hidden = YES;
+    self.activityView.hidesWhenStopped = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -44,6 +46,15 @@
 - (IBAction)didSelectClose:(id)sender
 {
     [self dismissViewControllerAnimated: YES completion: nil];
+}
+
+- (IBAction)didSelectReload:(id)sender
+{
+    if ([self.delegate respondsToSelector: @selector(menuDidSelectReload)]) {
+        self.activityView.hidden = NO;
+        [self.activityView startAnimating];
+        [self.delegate menuDidSelectReload];
+    }
 }
 
 #pragma mark - Motion Shake

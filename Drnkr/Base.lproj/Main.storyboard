@@ -26,6 +26,7 @@
             <string>Lato-Black</string>
             <string>Lato-Black</string>
             <string>Lato-Black</string>
+            <string>Lato-Black</string>
         </mutableArray>
         <mutableArray key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
@@ -194,17 +195,48 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Icalia" translatesAutoresizingMaskIntoConstraints="NO" id="Ouz-ga-ImD">
-                                <rect key="frame" x="234" y="122" width="133" height="133"/>
+                                <rect key="frame" x="234" y="417" width="133" height="133"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hecha por Icalia Labs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0c-4t-aYY">
-                                <rect key="frame" x="214" y="263" width="173" height="22"/>
+                                <rect key="frame" x="214" y="558" width="173" height="22"/>
                                 <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-3o-XoG">
+                                <rect key="frame" x="212" y="58" width="177" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="54" id="6d4-OQ-Y3G"/>
+                                    <constraint firstAttribute="width" constant="55" id="ZWb-H9-UyR"/>
+                                    <constraint firstAttribute="height" constant="34" id="p36-OP-vEq"/>
+                                    <constraint firstAttribute="height" constant="34" id="snn-x3-WnW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="18"/>
+                                <state key="normal" title="RELOAD QUESTIONS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="p36-OP-vEq"/>
+                                        <exclude reference="ZWb-H9-UyR"/>
+                                        <exclude reference="snn-x3-WnW"/>
+                                        <exclude reference="6d4-OQ-Y3G"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="didSelectClose:" destination="t59-jR-oKe" eventType="touchUpInside" id="h27-vD-wWR"/>
+                                    <action selector="didSelectReload:" destination="t59-jR-oKe" eventType="touchUpInside" id="0Pi-PW-aIe"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="JeI-5Q-Ps8">
+                                <rect key="frame" x="397" y="65" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.87058823529411766" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="wEg-3o-XoG" secondAttribute="centerX" constant="-0.5" id="1ek-Ej-i5E"/>
+                            <constraint firstItem="wEg-3o-XoG" firstAttribute="top" secondItem="gPk-i8-6XI" secondAttribute="bottom" constant="58" id="INJ-eO-UcO"/>
                             <constraint firstAttribute="centerX" secondItem="Ouz-ga-ImD" secondAttribute="centerX" constant="-0.5" id="Mhj-cx-yIW"/>
                             <constraint firstItem="pVF-Cf-GUL" firstAttribute="top" secondItem="gPk-i8-6XI" secondAttribute="bottom" constant="8" id="Mzu-BD-4IE"/>
                             <constraint firstItem="pVF-Cf-GUL" firstAttribute="top" secondItem="gPk-i8-6XI" secondAttribute="bottom" constant="8" id="NZU-sU-IEJ"/>
@@ -213,18 +245,23 @@
                             <constraint firstItem="iX1-EI-UZf" firstAttribute="top" secondItem="f0c-4t-aYY" secondAttribute="bottom" constant="20" id="gCY-UY-shp"/>
                             <constraint firstAttribute="trailing" secondItem="pVF-Cf-GUL" secondAttribute="trailing" constant="8" id="kPj-Mw-ve7"/>
                             <constraint firstItem="f0c-4t-aYY" firstAttribute="top" secondItem="Ouz-ga-ImD" secondAttribute="bottom" constant="8" id="pWA-aO-P9F"/>
+                            <constraint firstItem="JeI-5Q-Ps8" firstAttribute="leading" secondItem="wEg-3o-XoG" secondAttribute="trailing" constant="8" id="sBh-TB-egI"/>
                             <constraint firstItem="pVF-Cf-GUL" firstAttribute="leading" secondItem="sBg-f5-GL6" secondAttribute="leading" constant="8" id="sud-PT-6Wa"/>
+                            <constraint firstItem="wEg-3o-XoG" firstAttribute="top" secondItem="JeI-5Q-Ps8" secondAttribute="bottom" constant="-27" id="uT8-zb-wG6"/>
+                            <constraint firstItem="iX1-EI-UZf" firstAttribute="top" secondItem="Ouz-ga-ImD" secondAttribute="bottom" constant="50" id="y0h-Og-ae3"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="NZU-sU-IEJ"/>
                                 <exclude reference="kPj-Mw-ve7"/>
+                                <exclude reference="YTG-6I-zY4"/>
                                 <exclude reference="gCY-UY-shp"/>
                             </mask>
                         </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="activityView" destination="JeI-5Q-Ps8" id="90f-Qc-Mqu"/>
                         <segue destination="8VA-fP-XQE" kind="presentation" identifier="loginSegue" modalTransitionStyle="flipHorizontal" id="78i-Ou-z1X"/>
                     </connections>
                 </viewController>

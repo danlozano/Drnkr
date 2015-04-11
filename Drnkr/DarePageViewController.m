@@ -22,15 +22,21 @@
     [super viewDidLoad];
     
     self.dataSource = self;
-
-    DareViewController *dareVC = [self dareViewControllerWithRandomChallenge];
     
-    [self setViewControllers: @[dareVC] direction: UIPageViewControllerNavigationDirectionForward animated: YES completion: nil];
+    [self initializePageViewController];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Appearance
+
+- (void)initializePageViewController
+{
+    DareViewController *dareVC = [self dareViewControllerWithRandomChallenge];
+    [self setViewControllers: @[dareVC] direction: UIPageViewControllerNavigationDirectionForward animated: YES completion: nil];
 }
 
 #pragma mark - UIPageViewController Data Source

@@ -13,7 +13,7 @@
 #import "LevelViewController.h"
 #import "MenuViewController.h"
 
-@interface MainViewController () <UIGestureRecognizerDelegate>
+@interface MainViewController () <UIGestureRecognizerDelegate, MenuViewControllerDelegate>
 
 @property (nonatomic) NSArray *challenges;
 
@@ -31,7 +31,6 @@
     [super viewDidLoad];
     
     [self customizeAppearance];
-    //[self setUpTapGestureRecognizers];
     
     [self loadAssets];
 }
@@ -127,6 +126,7 @@
 - (IBAction)didSelectMenu:(id)sender
 {
     MenuViewController *menuVC = [self.storyboard instantiateViewControllerWithIdentifier: @"menuViewController"];
+    menuVC.delegate = self;
     [self presentViewController: menuVC animated: YES completion: nil];
 }
 
@@ -139,6 +139,23 @@
     }
     
     return NO;
+}
+
+#pragma mark - MenuViewController Delegate
+
+- (void)menuDidSelectReload
+{
+    PFQuery *challengesQuery = [PFQuery queryWithClassName: @"Challenge"];
+    [challengesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error) {
+            self.challenges = objects;
+            [self setUpArrays];
+            
+            [self dismissViewControllerAnimated: YES completion: nil];
+        }
+        
+    }];
 }
 
 @end
