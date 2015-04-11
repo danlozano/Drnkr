@@ -8,7 +8,7 @@
 
 #import "LevelViewController.h"
 
-#import "DareViewController.h"
+#import "DarePageViewController.h"
 
 @interface LevelViewController ()
 
@@ -81,7 +81,7 @@
 
 - (void)didSelectEasy:(UITapGestureRecognizer *)recognizer
 {
-    DareViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"dareViewController"];
+    DarePageViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"darePageViewController"];
     dareVC.challenges = self.easyChallenges;
     
     [self.navigationController pushViewController: dareVC animated: YES];
@@ -89,7 +89,7 @@
 
 - (void)didSelectMedium:(UITapGestureRecognizer *)recognizer
 {
-    DareViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"dareViewController"];
+    DarePageViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"darePageViewController"];
     dareVC.challenges = self.mediumChallenges;
     
     [self.navigationController pushViewController: dareVC animated: YES];
@@ -98,7 +98,7 @@
 
 - (void)didSelectHard:(UITapGestureRecognizer *)recognizer
 {
-    DareViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"dareViewController"];
+    DarePageViewController *dareVC = [self.storyboard instantiateViewControllerWithIdentifier: @"darePageViewController"];
     dareVC.challenges = self.hardChallenges;
     
     [self.navigationController pushViewController: dareVC animated: YES];

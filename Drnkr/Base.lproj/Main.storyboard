@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BzX-p8-gF9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BzX-p8-gF9">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -28,7 +28,6 @@
             <string>Lato-Black</string>
         </mutableArray>
         <mutableArray key="Lato-Bold.ttf">
-            <string>Lato-Bold</string>
             <string>Lato-Bold</string>
             <string>Lato-Bold</string>
             <string>Lato-Bold</string>
@@ -171,12 +170,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hecha por Icalia Labs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0c-4t-aYY">
-                                <rect key="frame" x="214" y="558" width="173" height="22"/>
-                                <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVF-Cf-GUL">
                                 <rect key="frame" x="8" y="8" width="55" height="34"/>
                                 <constraints>
@@ -200,20 +193,33 @@
                                     <action selector="didSelectClose:" destination="t59-jR-oKe" eventType="touchUpInside" id="bgu-ij-1u7"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Icalia" translatesAutoresizingMaskIntoConstraints="NO" id="Ouz-ga-ImD">
+                                <rect key="frame" x="234" y="122" width="133" height="133"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hecha por Icalia Labs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0c-4t-aYY">
+                                <rect key="frame" x="214" y="263" width="173" height="22"/>
+                                <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87058823529411766" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Ouz-ga-ImD" secondAttribute="centerX" constant="-0.5" id="Mhj-cx-yIW"/>
                             <constraint firstItem="pVF-Cf-GUL" firstAttribute="top" secondItem="gPk-i8-6XI" secondAttribute="bottom" constant="8" id="Mzu-BD-4IE"/>
                             <constraint firstItem="pVF-Cf-GUL" firstAttribute="top" secondItem="gPk-i8-6XI" secondAttribute="bottom" constant="8" id="NZU-sU-IEJ"/>
                             <constraint firstAttribute="centerX" secondItem="f0c-4t-aYY" secondAttribute="centerX" id="NeA-jy-tPp"/>
+                            <constraint firstAttribute="centerY" secondItem="Ouz-ga-ImD" secondAttribute="centerY" constant="111.5" id="YTG-6I-zY4"/>
                             <constraint firstItem="iX1-EI-UZf" firstAttribute="top" secondItem="f0c-4t-aYY" secondAttribute="bottom" constant="20" id="gCY-UY-shp"/>
                             <constraint firstAttribute="trailing" secondItem="pVF-Cf-GUL" secondAttribute="trailing" constant="8" id="kPj-Mw-ve7"/>
+                            <constraint firstItem="f0c-4t-aYY" firstAttribute="top" secondItem="Ouz-ga-ImD" secondAttribute="bottom" constant="8" id="pWA-aO-P9F"/>
                             <constraint firstItem="pVF-Cf-GUL" firstAttribute="leading" secondItem="sBg-f5-GL6" secondAttribute="leading" constant="8" id="sud-PT-6Wa"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="NZU-sU-IEJ"/>
                                 <exclude reference="kPj-Mw-ve7"/>
+                                <exclude reference="gCY-UY-shp"/>
                             </mask>
                         </variation>
                     </view>
@@ -670,7 +676,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bB-ko-iL1">
-                                                    <rect key="frame" x="27" y="24" width="99.5" height="29"/>
+                                                    <rect key="frame" x="27" y="24" width="100" height="29"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
                                                     <color key="textColor" red="0.81176470590000005" green="0.17254901959999999" blue="0.08235294118" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -792,13 +798,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomate 2 shots al mismo tiempo" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="KSM-1r-4Cj">
-                                <rect key="frame" x="51" y="194" width="420" height="91.5"/>
+                                <rect key="frame" x="51" y="194" width="420" height="92"/>
                                 <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="38"/>
                                 <color key="textColor" red="0.37647058823529411" green="0.10196078431372549" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lF-Vq-lrc">
-                                <rect key="frame" x="51" y="161" width="163.5" height="29"/>
+                                <rect key="frame" x="51" y="161" width="164" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="163.5" id="g60-dV-1YW"/>
                                 </constraints>
@@ -819,21 +825,6 @@
                                     <action selector="didSelectShare:" destination="YZi-Jv-Nni" eventType="touchUpInside" id="dhO-4V-fg7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlU-GR-eeb">
-                                <rect key="frame" x="422" y="294" width="49" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="49" id="J21-H6-kk1"/>
-                                    <constraint firstAttribute="height" constant="40" id="KMs-NW-oly"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="23"/>
-                                <state key="normal" title="Otra">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didSelectOther:" destination="YZi-Jv-Nni" eventType="touchUpInside" id="CFV-Lf-oEV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWi-w3-9GT">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <constraints>
@@ -847,8 +838,8 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="pjq-Vk-D08"/>
                                         <exclude reference="A5G-g0-LfE"/>
+                                        <exclude reference="pjq-Vk-D08"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -862,15 +853,21 @@
                             <constraint firstItem="5lF-Vq-lrc" firstAttribute="leading" secondItem="TzL-DD-ZgC" secondAttribute="leadingMargin" constant="35" id="D73-9e-M3X"/>
                             <constraint firstAttribute="centerY" secondItem="5lF-Vq-lrc" secondAttribute="centerY" constant="124.5" id="G6h-pi-CIl"/>
                             <constraint firstItem="oWi-w3-9GT" firstAttribute="top" secondItem="wEd-Ca-JAh" secondAttribute="bottom" id="PbG-D7-UYy"/>
-                            <constraint firstItem="SlU-GR-eeb" firstAttribute="top" secondItem="KSM-1r-4Cj" secondAttribute="bottom" constant="8.5" id="QEw-DO-UZa"/>
+                            <constraint firstItem="KSM-1r-4Cj" firstAttribute="leading" secondItem="TzL-DD-ZgC" secondAttribute="leading" constant="51" id="Rje-86-ajB"/>
                             <constraint firstItem="KSM-1r-4Cj" firstAttribute="width" secondItem="TzL-DD-ZgC" secondAttribute="width" multiplier="0.7" id="UIZ-hR-frv"/>
+                            <constraint firstItem="5lF-Vq-lrc" firstAttribute="leading" secondItem="TzL-DD-ZgC" secondAttribute="leading" constant="51" id="hre-c4-DrR"/>
                             <constraint firstItem="crx-ee-FAV" firstAttribute="leading" secondItem="KSM-1r-4Cj" secondAttribute="leading" id="jHD-ly-pWZ"/>
                             <constraint firstItem="KSM-1r-4Cj" firstAttribute="leading" secondItem="TzL-DD-ZgC" secondAttribute="leadingMargin" constant="35" id="mxr-At-GXf"/>
                             <constraint firstItem="crx-ee-FAV" firstAttribute="top" secondItem="KSM-1r-4Cj" secondAttribute="bottom" constant="8" id="qZ2-G1-JE0"/>
                             <constraint firstItem="oWi-w3-9GT" firstAttribute="leading" secondItem="TzL-DD-ZgC" secondAttribute="leading" id="sLB-10-Sma"/>
-                            <constraint firstItem="SlU-GR-eeb" firstAttribute="trailing" secondItem="KSM-1r-4Cj" secondAttribute="trailing" id="tRR-gq-HKT"/>
                             <constraint firstAttribute="centerY" secondItem="KSM-1r-4Cj" secondAttribute="centerY" constant="60" id="yGa-Qb-70l"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="D73-9e-M3X"/>
+                                <exclude reference="mxr-At-GXf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -881,7 +878,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfk-eg-ima" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593" y="-98"/>
+            <point key="canvasLocation" x="1782" y="342"/>
+        </scene>
+        <!--Dare Page View Controller-->
+        <scene sceneID="cXd-JU-yWB">
+            <objects>
+                <pageViewController storyboardIdentifier="darePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Onh-99-ytB" customClass="DarePageViewController" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5b-O1-3bw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1782" y="-328"/>
         </scene>
         <!--Level View Controller-->
         <scene sceneID="QwR-je-B7t">
@@ -1022,6 +1030,7 @@
     </scenes>
     <resources>
         <image name="BackArrow" width="26" height="26"/>
+        <image name="Icalia" width="133" height="133"/>
         <image name="ShareIcon" width="30" height="39"/>
     </resources>
     <color key="tintColor" red="0.37647058820000001" green="0.1019607843" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>

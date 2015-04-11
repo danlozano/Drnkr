@@ -11,7 +11,7 @@
 
 @interface DareViewController : UIViewController
 
-@property (nonatomic) NSArray *challenges;
+@property (nonatomic) PFObject *challenge;
 
 @property (weak, nonatomic) IBOutlet UILabel *challengeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
@@ -19,7 +19,5 @@
 
 - (IBAction)didSelectShare:(id)sender;
 - (IBAction)didSelectBack:(id)sender;
-- (IBAction)didSelectOther:(id)sender;
-
 
 @end
