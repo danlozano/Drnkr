@@ -17,7 +17,7 @@
 
 @interface AccountViewController () <UITableViewDataSource,UITableViewDelegate,CreateChallengeViewController>
 
-@property (nonatomic) NSArray *challenges;
+@property (nonatomic) NSMutableArray *challenges;
 
 @property (nonatomic) UIActivityIndicatorView *activityView;
 @property (nonatomic) UIRefreshControl *refreshControl;
@@ -137,6 +137,18 @@
     
     [self presentViewController: createVC animated: YES completion: nil];
     [self.tableView deselectRowAtIndexPath: indexPath animated: YES];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete && indexPath.row != 0) {
+        
+        PFObject *objectToDelete = self.challenges[indexPath.row - 1];
+        [objectToDelete deleteEventually];
+        
+        [self.challenges removeObjectAtIndex: indexPath.row - 1];
+        [self.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+    }
 }
 
 #pragma mark - IBAction's
